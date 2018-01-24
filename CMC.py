@@ -6,9 +6,12 @@ coins = json.loads(content)
 
 counter=1;
 
+print '${:,.2f}'.format(12.121212)
+
 top7 = "---------------------\n"
 for c in coins:
-	top7 += str(counter) + ". " + (json.dumps(c["symbol"]).strip('"')) + "     "  + str(round(eval((json.dumps(c["price_usd"]).strip('"'))),2))+ "\n"
+	price = json.dumps(c["price_usd"]).strip('"')
+	top7 += str(counter) + "." + (json.dumps(c["symbol"]).strip('"')) + "     "  + '${:,.2f}'.format(eval(price)) + "\n"
 	counter= counter + 1
 
 
