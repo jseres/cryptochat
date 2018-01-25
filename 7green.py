@@ -10,10 +10,13 @@ top7 = "---------------------\n"
 
 for c in coins:
 	symbol = json.dumps(c["symbol"]).strip('"')
-	if one_hr
+	try:
 		one_hr =json.dumps(c["percent_change_1h"]).strip('"')
 		one_hr=float(one_hr)
 		orderedDictionary[one_hr] = symbol
+
+	except:
+		print("data is null")
 
 orderedDictionary = collections.OrderedDict(sorted(orderedDictionary.items()))
 print orderedDictionary	
